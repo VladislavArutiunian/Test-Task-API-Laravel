@@ -21,7 +21,6 @@ class NotebookEntryController extends Controller
      */
     public function store(Request $request)
     {
-        //
     }
 
     /**
