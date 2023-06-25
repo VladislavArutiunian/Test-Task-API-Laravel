@@ -16,6 +16,12 @@ class NotebookEntryResource extends JsonResource
     {
         return [
             'id' => $this->id,
+            'full_name' => $this->full_name,
+            'company_name' => $this->whenNotNull($this->company_name),
+            'phone_number' => $this->phone_number,
+            'email' => $this->email,
+            'birth_date' => $this->whenNotNull($this->birth_date),
+            'photo' => $this->whenNotNull($this->photo),
         ];
     }
 }

@@ -12,6 +12,7 @@ class NotebookEntrySeeder extends Seeder
      * Run the database seeds.
      */
     public function run(): void
+
     {
          NotebookEntry::factory(10)->create();
     }

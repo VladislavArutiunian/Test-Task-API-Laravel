@@ -17,8 +17,9 @@ class NotebookEntryFactory extends Factory
     public function definition(): array
     {
         return [
-            'first_name' => fake()->name,
+            'first_name' => fake()->firstName,
             'last_name' => fake()->lastName,
+            'patronymic' => fake()->lastName,
             'phone_number' => fake()->phoneNumber,
             'email' => fake()->email,
         ];

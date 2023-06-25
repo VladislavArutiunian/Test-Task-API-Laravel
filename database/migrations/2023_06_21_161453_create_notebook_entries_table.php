@@ -21,6 +21,10 @@ return new class extends Migration
             $table->string('email');
             $table->string('birth_date')->nullable();
             $table->string('photo')->nullable();
+
+            $table->unique('phone_number');
+            $table->unique('email');
+
             $table->timestamps();
         });
     }
