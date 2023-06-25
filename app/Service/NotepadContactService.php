@@ -2,22 +2,22 @@
 
 namespace App\Service;
 
-use App\Http\Requests\StoreContactBookRequest;
-use App\Http\Requests\UpdateContactBookRequest;
-use App\Models\ContactBook;
+use App\Http\Requests\StoreNotepadContactRequest;
+use App\Http\Requests\UpdateNotepadContactRequest;
+use App\Models\NotepadContact;
 
-class ContactBookService
+class NotepadContactService
 {
-    public function store(StoreContactBookRequest $request)
+    public function store(StoreNotepadContactRequest $request)
     {
         $data = $request->validated();
-        return ContactBook::firstOrCreate($this->checkAndModifyEntryData($data));
+        return NotepadContact::firstOrCreate($this->checkAndModifyEntryData($data));
     }
 
-    public function update(UpdateContactBookRequest $request, string $id)
+    public function update(UpdateNotepadContactRequest $request, string $id)
     {
         $data = $request->validated();
-        $note = ContactBook::find($id);
+        $note = NotepadContact::find($id);
         $note->update(
             $this->checkAndModifyEntryData($data)
         );

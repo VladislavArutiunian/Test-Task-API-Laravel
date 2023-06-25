@@ -2,7 +2,7 @@
 
 namespace App\Providers;
 
-use App\Models\ContactBook;
+use App\Models\NotepadContact;
 use App\Observers\NotebookEntryObserver;
 use Illuminate\Auth\Events\Registered;
 use Illuminate\Auth\Listeners\SendEmailVerificationNotification;
