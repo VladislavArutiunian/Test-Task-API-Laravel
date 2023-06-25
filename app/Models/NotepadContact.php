@@ -9,6 +9,7 @@ use Illuminate\Database\Eloquent\Model;
  * @property string $full_name
  * @property mixed $first_name
  * @property mixed $last_name
+ * @method when(mixed $order_by, \Closure $param)
  */
 class NotepadContact extends Model
 {

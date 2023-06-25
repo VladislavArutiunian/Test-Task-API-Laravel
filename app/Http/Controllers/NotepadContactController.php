@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 
+use App\Http\Requests\IndexNotepadContactRequest;
 use App\Http\Requests\StoreNotepadContactRequest;
 use App\Http\Requests\UpdateNotepadContactRequest;
 use App\Http\Resources\NotepadContactResource;
@@ -14,18 +15,21 @@ class NotepadContactController extends Controller
     /**
      * Display a listing of the resource.
      */
-    public function index(NotepadContact $contactBook)
-    {
-        dd($contactBook->all());
-        $contacts = NotepadContact::paginate(10);
+    public function index(IndexNotepadContactRequest $request, NotepadContact $notepadContact) {
+        $validated = $request->validated();
+        $perPage = $validated['per_page'] ?? 15;
+
+        $contacts = $notepadContact->paginate($perPage);
         return NotepadContactResource::collection($contacts);
     }
 
     /**
      * Store a newly created resource in storage.
      */
-    public function store(StoreNotepadContactRequest $request, NotepadContactService $service): NotepadContactResource
-    {
+    public function store(
+        StoreNotepadContactRequest $request,
+        NotepadContactService $service
+    ): NotepadContactResource {
         $note = $service->store($request);
         return new NotepadContactResource($note);
     }
