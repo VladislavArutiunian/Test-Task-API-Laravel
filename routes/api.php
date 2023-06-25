@@ -1,6 +1,6 @@
 <?php
 
-use App\Http\Controllers\NotepadContactController;
+use App\Http\Controllers\Api\V1\NotepadContactController;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Route;
 

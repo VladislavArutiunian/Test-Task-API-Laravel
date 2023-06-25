@@ -1,7 +1,8 @@
 <?php
 
-namespace App\Http\Controllers;
+namespace App\Http\Controllers\Api\V1;
 
+use App\Http\Controllers\Controller;
 use App\Http\Requests\IndexNotepadContactRequest;
 use App\Http\Requests\StoreNotepadContactRequest;
 use App\Http\Requests\UpdateNotepadContactRequest;
@@ -17,7 +18,8 @@ class NotepadContactController extends Controller
      */
     public function index(IndexNotepadContactRequest $request, NotepadContact $notepadContact) {
         $validated = $request->validated();
-        $perPage = $validated['per_page'] ?? 15;
+        $perPageDefault = config('api.notepad_contacts.defaults.per_page_index');
+        $perPage = $validated['per_page'] ?? $perPageDefault;
 
         $contacts = $notepadContact->paginate($perPage);
         return NotepadContactResource::collection($contacts);
