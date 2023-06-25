@@ -2,22 +2,22 @@
 
 namespace App\Service;
 
-use App\Http\Requests\StoreNotebookEntryRequest;
-use App\Http\Requests\UpdateNotebookEntryRequest;
-use App\Models\NotebookEntry;
+use App\Http\Requests\StoreContactBookRequest;
+use App\Http\Requests\UpdateContactBookRequest;
+use App\Models\ContactBook;
 
-class NotebookEntryService
+class ContactBookService
 {
-    public function store(StoreNotebookEntryRequest $request)
+    public function store(StoreContactBookRequest $request)
     {
         $data = $request->validated();
-        return NotebookEntry::firstOrCreate($this->checkAndModifyEntryData($data));
+        return ContactBook::firstOrCreate($this->checkAndModifyEntryData($data));
     }
 
-    public function update(UpdateNotebookEntryRequest $request, string $id)
+    public function update(UpdateContactBookRequest $request, string $id)
     {
         $data = $request->validated();
-        $note = NotebookEntry::find($id);
+        $note = ContactBook::find($id);
         $note->update(
             $this->checkAndModifyEntryData($data)
         );

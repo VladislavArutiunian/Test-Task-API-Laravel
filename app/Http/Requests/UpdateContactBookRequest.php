@@ -5,7 +5,7 @@ namespace App\Http\Requests;
 use App\Rules\FullNameRule;
 use Illuminate\Foundation\Http\FormRequest;
 
-class UpdateNotebookEntryRequest extends FormRequest
+class UpdateContactBookRequest extends FormRequest
 {
     /**
      * Determine if the user is authorized to make this request.

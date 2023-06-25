@@ -7,8 +7,10 @@ use Illuminate\Database\Eloquent\Model;
 
 /**
  * @property string $full_name
+ * @property mixed $first_name
+ * @property mixed $last_name
  */
-class NotebookEntry extends Model
+class ContactBook extends Model
 {
     use HasFactory;
 

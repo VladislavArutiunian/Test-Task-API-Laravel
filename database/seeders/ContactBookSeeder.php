@@ -2,11 +2,11 @@
 
 namespace Database\Seeders;
 
-use App\Models\NotebookEntry;
+use App\Models\ContactBook;
 use Illuminate\Database\Console\Seeds\WithoutModelEvents;
 use Illuminate\Database\Seeder;
 
-class NotebookEntrySeeder extends Seeder
+class ContactBookSeeder extends Seeder
 {
     /**
      * Run the database seeds.
@@ -14,6 +14,6 @@ class NotebookEntrySeeder extends Seeder
     public function run(): void
 
     {
-         NotebookEntry::factory(10)->create();
+         ContactBook::factory(10)->create();
     }
 }
