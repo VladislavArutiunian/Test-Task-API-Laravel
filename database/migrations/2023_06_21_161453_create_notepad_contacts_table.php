@@ -11,7 +11,7 @@ return new class extends Migration
      */
     public function up(): void
     {
-        Schema::create('notebook_entries', function (Blueprint $table) {
+        Schema::create('notepad_contacts', function (Blueprint $table) {
             $table->id();
             $table->string('first_name');
             $table->string('last_name');
@@ -21,6 +21,10 @@ return new class extends Migration
             $table->string('email');
             $table->string('birth_date')->nullable();
             $table->string('photo')->nullable();
+
+            $table->unique('phone_number');
+            $table->unique('email');
+
             $table->timestamps();
         });
     }
@@ -30,6 +34,6 @@ return new class extends Migration
      */
     public function down(): void
     {
-        Schema::dropIfExists('notebook_entries');
+        Schema::dropIfExists('notepad_contacts');
     }
 };
