@@ -12,8 +12,8 @@ use App\Service\NotepadContactService;
 use Illuminate\Contracts\Foundation\Application;
 use Illuminate\Contracts\Routing\ResponseFactory;
 use Illuminate\Http\Resources\Json\AnonymousResourceCollection;
-use Symfony\Component\HttpFoundation\Response;
 use OpenApi\Attributes as OA;
+use Symfony\Component\HttpFoundation\Response;
 
 #[OA\Tag(
     name: 'Notebook',
@@ -43,7 +43,8 @@ class NotepadContactController extends Controller
         ]
     )
 ]
-    public function index(IndexNotepadContactRequest $request, NotepadContact $notepadContact) {
+    public function index(IndexNotepadContactRequest $request, NotepadContact $notepadContact): AnonymousResourceCollection
+    {
         $validated = $request->validated();
         $perPageDefault = config('api.notepad_contacts.defaults.per_page_index');
         $perPage = $validated['per_page'] ?? $perPageDefault;

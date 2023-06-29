@@ -14,7 +14,7 @@ class FullNameRule implements ValidationRule
      *
      * @param string $attribute
      * @param mixed $value
-     * @param \Closure(string): PotentiallyTranslatedString $fail
+     * @param Closure(string): PotentiallyTranslatedString $fail
      */
     public function validate(string $attribute, mixed $value, Closure $fail): void
     {

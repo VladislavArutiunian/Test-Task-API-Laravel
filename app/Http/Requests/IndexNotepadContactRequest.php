@@ -2,9 +2,8 @@
 
 namespace App\Http\Requests;
 
-use App\Rules\FullNameRule;
+use Illuminate\Contracts\Validation\ValidationRule;
 use Illuminate\Foundation\Http\FormRequest;
-use Illuminate\Validation\Rule;
 
 class IndexNotepadContactRequest extends FormRequest
 {
@@ -19,7 +18,7 @@ class IndexNotepadContactRequest extends FormRequest
     /**
      * Get the validation rules that apply to the request.
      *
-     * @return array<string, \Illuminate\Contracts\Validation\ValidationRule|array|string>
+     * @return array<string, ValidationRule|array|string>
      */
     public function rules(): array
     {
@@ -27,7 +26,7 @@ class IndexNotepadContactRequest extends FormRequest
             'per_page' => 'numeric|min:1'
         ];
     }
-    public function messages()
+    public function messages(): array
     {
         return [
             'per.min' => 'The :attribute field must be greater than 0.'

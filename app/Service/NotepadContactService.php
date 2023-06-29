@@ -27,7 +27,8 @@ class NotepadContactService
     private function checkAndModifyEntryData(array $data): array
     {
         if (request()->hasFile('photo')) {
-            $data['photo'] = request()->file('photo')->store('entries_photo');
+            $path = config('api.notepad_contacts.storage');
+            $data['photo'] = request()->file('photo')->store($path, 'public');
         }
 
         if (isset($data['full_name'])) {
