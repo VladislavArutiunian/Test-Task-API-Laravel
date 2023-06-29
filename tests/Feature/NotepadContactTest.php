@@ -4,6 +4,7 @@ namespace Tests\Feature;
 
 use App\Models\NotepadContact;
 use Illuminate\Foundation\Testing\RefreshDatabase;
+use Symfony\Component\HttpFoundation\Response;
 use Tests\TestCase;
 
 class NotepadContactTest extends TestCase
@@ -61,5 +62,26 @@ class NotepadContactTest extends TestCase
 
         $response->assertStatus(200);
         $response->assertJsonPath('data.full_name', $secondFullName);
+    }
+
+    /**
+     * Test contact is deleting correctly
+     */
+    public function test_contact_is_deleted(): void
+    {
+        $contact = NotepadContact::factory(1)->create();
+        $contactId = $contact->first()->id;
+
+        $uri = '/api/v1/notebook/' . $contactId;
+        $response = $this->post(
+            $uri,
+            [
+                '_method' => 'DELETE'
+            ],
+            ['Accept' => 'application/json']
+        );
+
+        $response->assertStatus(Response::HTTP_NO_CONTENT);
+        $this->assertNull(NotepadContact::find($contactId));
     }
 }

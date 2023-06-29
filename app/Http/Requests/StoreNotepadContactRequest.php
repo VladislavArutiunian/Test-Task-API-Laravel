@@ -25,8 +25,8 @@ class StoreNotepadContactRequest extends FormRequest
         return [
             'full_name' => ['required', 'string', 'between:5,255', new FullNameRule],
             'company_name' => 'string|between:2,255',
-            'phone_number' => ['numeric', 'required', 'unique:notebook_entries,phone_number', 'digits_between:6,18'],
-            'email' => ['email', 'required', 'unique:notebook_entries,email', 'between:6,255'],
+            'phone_number' => ['numeric', 'required', 'unique:notepad_contacts,phone_number', 'digits_between:6,18'],
+            'email' => ['email', 'required', 'unique:notepad_contacts,email', 'between:6,255'],
             'birth_date' => ['date_format:d.m.Y', 'before:today'],
             'photo' => 'image|max:2048',
         ];

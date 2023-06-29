@@ -1,0 +1,111 @@
+{
+    "openapi": "3.0.0",
+    "info": {
+        "title": "Notebook contacts API app",
+        "description": "API Test Task Notebook contacts on Laravel",
+        "contact": {
+            "email": "vladislav.arutiunian@gmail.com"
+        },
+        "version": "1.0.0"
+    },
+    "servers": [
+        {
+            "url": "http://127.0.0.1:8000/api/v1/",
+            "description": "local"
+        }
+    ],
+    "paths": {
+        "/api/v1/notebook": {
+            "get": {
+                "tags": [
+                    "Notebook"
+                ],
+                "summary": "Display all contacts in the notepad",
+                "description": "Display all contacts in the notepad",
+                "operationId": "cac6f1c6b55a5f01e1733b1988796dae",
+                "responses": {
+                    "200": {
+                        "description": "Successful operation"
+                    },
+                    "400": {
+                        "description": "Bad request"
+                    }
+                }
+            }
+        },
+        "/api/v1/notebook/": {
+            "post": {
+                "tags": [
+                    "Notebook"
+                ],
+                "summary": "Store a newly created resource in storage",
+                "description": "Display the specified contact.",
+                "operationId": "9ea3d3495fc8ce7eec162cb36f9069e7",
+                "responses": {
+                    "200": {
+                        "description": "Successful operation"
+                    },
+                    "400": {
+                        "description": "Bad request"
+                    }
+                }
+            }
+        },
+        "/api/v1/notebook/{id}": {
+            "get": {
+                "tags": [
+                    "Notebook"
+                ],
+                "summary": "Display the specified contact",
+                "description": "Display the specified contact.",
+                "operationId": "0db8e143bb54c306dd915ac1a4abcbc0",
+                "responses": {
+                    "200": {
+                        "description": "Successful operation"
+                    },
+                    "400": {
+                        "description": "Bad request"
+                    }
+                }
+            },
+            "put": {
+                "tags": [
+                    "Notebook"
+                ],
+                "summary": "Update the specified resource in storage",
+                "description": "Display the specified contact.",
+                "operationId": "f7c301929bc1a8266ebe32738bbfdb0f",
+                "responses": {
+                    "200": {
+                        "description": "Successful operation"
+                    },
+                    "400": {
+                        "description": "Bad request"
+                    }
+                }
+            },
+            "delete": {
+                "tags": [
+                    "Notebook"
+                ],
+                "summary": "Display the specified contact",
+                "description": "Display the specified contact.",
+                "operationId": "4e0b11ce761e1e84b75f7475b16045a1",
+                "responses": {
+                    "200": {
+                        "description": "Successful operation"
+                    },
+                    "400": {
+                        "description": "Bad request"
+                    }
+                }
+            }
+        }
+    },
+    "tags": [
+        {
+            "name": "Notebook",
+            "description": "Notebook API"
+        }
+    ]
+}

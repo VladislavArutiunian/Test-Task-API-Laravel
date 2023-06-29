@@ -32,6 +32,13 @@ class NotepadContact extends Model
     ];
 
     /**
+     * Model table
+     *
+     * @var string
+     */
+    protected $table = 'notepad_contacts';
+
+    /**
      * Get the contact's full name.
      *
      * @return string
